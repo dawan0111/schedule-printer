@@ -1,0 +1,30 @@
+{
+  "name": "3d_sch_api",
+  "version": "1.0.0",
+  "description": "3d프린터 일정관리 앱 api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:makemigrations": "./node_modules/sequelize-auto-migrations/bin/makemigration.js",
+    "dev": "nodemon index.js --env development"
+  },
+  "author": "KDW",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "form-data": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "react-toastify": "^7.0.3",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

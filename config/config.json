@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "test",
+    "password": "test!",
+    "database": "printer",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "timezone": "+9:00"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+9:00"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "timezone": "+9:00",
+    "use_env_variable": "DATABASE_URL"
+  }
+}
