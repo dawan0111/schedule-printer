@@ -16,12 +16,12 @@
     "timezone": "+9:00"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "timezone": "+9:00",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": true
+    },
     "use_env_variable": "DATABASE_URL"
   }
 }
