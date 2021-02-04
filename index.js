@@ -7,16 +7,17 @@ const printController = require("./controllers/PrintController")
 const historyController = require("./controllers/HistoryController")
 const { authMiddleware, authAdminMiddleware } = require("./middlewares/auth")
 
+const port = process.env.PORT || 8080;
 const app = express()
 
-const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://192.168.219.104:3000']
+const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://sch-print.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
-      callback(null, true)
-      // callback(new Error('Not allowed by CORS'))
+      // callback(null, true)
+      callback(new Error('Not allowed by CORS'))
     }
   }
 }
@@ -44,6 +45,6 @@ app.get("*", (req, res) => {
   res.render("/public/index.html")
 })
 
-app.listen(4000, () => {
-  console.log(`Example app listening at http://localhost:4000`)
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
 })
