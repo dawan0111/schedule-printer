@@ -1,2 +1,2 @@
 # schedule-printer
-3D 프린터 예약 어플리케이션
+3D 프린터 예약 사이트
