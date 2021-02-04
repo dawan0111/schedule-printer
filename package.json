@@ -4,8 +4,8 @@
   "description": "3d프린터 일정관리 앱 api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "test": "node index.js --env production",
     "db:makemigrations": "./node_modules/sequelize-auto-migrations/bin/makemigration.js",
     "dev": "nodemon index.js --env development"
   },
