@@ -7,10 +7,10 @@ const printController = require("./controllers/PrintController")
 const historyController = require("./controllers/HistoryController")
 const { authMiddleware, authAdminMiddleware } = require("./middlewares/auth")
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 4000;
 const app = express()
 
-const whitelist = ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080', 'https://sch-print.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'http://127.0.0.1:3000', 'http://localhost:8080', 'https://sch-print.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log(origin)
@@ -43,6 +43,7 @@ app.put("/printers/:printerId", authAdminMiddleware, asyncHandler(printControlle
 app.get("/historys/ranking", asyncHandler(historyController.ranking))
 app.get("/historys/:printerId", asyncHandler(historyController.get))
 app.post("/historys", authMiddleware, asyncHandler(historyController.create))
+app.delete("/historys", authAdminMiddleware, asyncHandler(historyController.delete))
 
 app.get("*", (req, res) => {
   res.render(__dirname + "/public/index.html")

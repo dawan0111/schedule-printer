@@ -9,7 +9,8 @@ module.exports = {
     if (req.params.printerId) {
       const historys = await models["Historys"].findAll({
         where: {
-          printerId: req.params.printerId
+          printerId: req.params.printerId,
+          isDel: 0,
         },
         order: [["startDate", "DESC"]],
       })
@@ -31,6 +32,9 @@ module.exports = {
         [Sequelize.col('User.name'), 'userName'],
         [Sequelize.fn('count', Sequelize.col('Historys.id')), 'count']
       ],
+      where: {
+        isDel: 0,
+      },
       group: [
         Sequelize.col("Historys.userId"),
         'User.id'
@@ -49,6 +53,20 @@ module.exports = {
     res.json(successResponse({
       historys
     }, "3D프린터 사용 랭킹"))
+  },
+
+  async delete(req, res) {
+    const deleteHistorys = await models["Historys"].update({
+      isDel: 1
+    }, {
+      where: {
+        isDel: 0,
+      }
+    })
+
+    res.json(successResponse({
+      deleteHistorys
+    }, "3D프린터 예약 초기화"))
   },
 
   async create(req, res) {

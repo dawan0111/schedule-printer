@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userId',
         targetKey: 'userId'
       })
+      this.belongsTo(models["Printer"], {
+        foreignKey: 'printerId',
+        targetKey: 'id'
+      })
       // define association here
     }
   };
@@ -23,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     userName: DataTypes.STRING,
     userPhone: DataTypes.STRING,
     startDate: DataTypes.DATE,
-    endDate: DataTypes.DATE
+    endDate: DataTypes.DATE,
+    isDel: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Historys',

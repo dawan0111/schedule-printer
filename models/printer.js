@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Printer.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    standardDate: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Printer',
