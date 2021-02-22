@@ -14,6 +14,9 @@ module.exports = {
           'printerId',
           [Sequelize.fn('max', Sequelize.col('startDate')), 'startDate']
         ],
+        where: {
+          isDel: 0,
+        },
         group: ['printerId'],
         raw: true
       })
